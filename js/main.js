@@ -100,7 +100,7 @@ $(document).ready(() => {
 
     $.get('https://node.verblike.com/mail', {
       body: [$('#name_reg').val() + ' ' + $('#last_reg').val(), 'Пошта: lvivyogalive@gmail.com', 'Номер Телефону: ' + $('#phone_reg').val(), 'Пароль ' + $('#pass_reg').val()],
-      to: sendTo;
+      to: sendTo
     }, function() {
       // $('.thanks').stop().fadeIn(500);
       $('#popap_reg form').html('<h3>Дякуємо ' + $('#name_reg').val() + ' ' + $('#last_reg').val() +   ' за реєстрацію!</h3> <p>Вашу заявку на зворотній дзвінок буде скоро оброблено</p>' );
