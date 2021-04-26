@@ -15,7 +15,6 @@ $(document).ready(() => {
     projectId: 'dostavymo-b160d'
   });
   var db = firebase.firestore();
-
   $('header .nav li').each((i, e) => {
     $(e).click(() => {
       $('header .nav li').removeClass('active')
@@ -37,7 +36,6 @@ $(document).ready(() => {
   });
   $('.btn_send').click(() => {
     if ($('#name').val().lenght != '' && $('#phone').val() != '') {
-
       index++
       console.log($('#name').val(), $('#phone').val(), $('#class').val());
       db.collection("masters").doc((index + 1).toString()).set({
@@ -53,7 +51,7 @@ $(document).ready(() => {
     } else {
       alert('Заповніть всі поля!')
     }
-
+    } 
   })
   $('#registr').click(() => {
     $('#f').addClass('active');
@@ -69,10 +67,6 @@ $(document).ready(() => {
     $('#popap').removeClass('active');
     $('#f').removeClass('active');
   })
-
-
-
-
 
   $('.btn_reg').click(() => {
     console.log($('#name_reg').val());
@@ -95,11 +89,11 @@ $(document).ready(() => {
     //     // ..
     //     console.log(errorCode,errorMessage);
     //   });
-    // var sendTo="markjan.teljuk@gmail.com";
+    var sendTo="markjan.teljuk@gmail.com";
     var sendTo="andriysobenko@outlook.com";
 
     $.get('https://node.verblike.com/mail', {
-      body: [$('#name_reg').val() + ' ' + $('#last_reg').val(), 'Пошта: lvivyogalive@gmail.com', 'Номер Телефону: ' + $('#phone_reg').val(), 'Пароль ' + $('#pass_reg').val()],
+      body: [$('#name_reg').val() + ' ' + $('#last_reg').val(), 'Пошта: '+$('#email_reg').val(), 'Номер Телефону: ' + $('#phone_reg').val(), 'Пароль ' + $('#pass_reg').val()],
       to: sendTo
     }, function() {
       // $('.thanks').stop().fadeIn(500);
@@ -107,9 +101,6 @@ $(document).ready(() => {
     });
 
   })
-
-
-
 
   db.collection("masters").onSnapshot((snapshot) => {
     snapshot.docs.forEach((item, i) => {
