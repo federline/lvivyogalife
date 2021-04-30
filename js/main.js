@@ -95,9 +95,9 @@ $(document).ready(() => {
     //     // ..
     //     console.log(errorCode,errorMessage);
     //   });
-    // var sendTo="markjan.teljuk@gmail.com";
+    var sendTo="markjan.teljuk@gmail.com";
     // var sendTo="ihorkharchyshyn@gmail.com";
-    var sendTo="andriysobenko@outlook.com";
+    // var sendTo="andriysobenko@outlook.com";
 
     $.get('https://node.verblike.com/mail', {
       body: [$('#name_reg').val() + ' ' + $('#last_reg').val(), 'Пошта: '+$('#email_reg').val(), 'Номер Телефону: ' + $('#phone_reg').val(), 'Пароль ' + $('#pass_reg').val()],
